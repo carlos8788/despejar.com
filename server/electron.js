@@ -5,6 +5,9 @@ const ipcMain = electron.ipcMain;
 
 const path = require('path');
 const isDev = require('electron-is-dev');
+const connectDatabase = require('./main/database/connect');
+
+const VueloManager = require('./main/database/managers/vuelos.manager.js')
 
 let mainWindow;
 
@@ -44,8 +47,23 @@ app.on('activate', () => {
 
 
 
-ipcMain.on('mi-canal', (event, mensaje) => {
-  console.log('Mensaje recibido:', mensaje);
-  // Puedes responder a la ventana de renderizado aquí si lo deseas
-  event.reply('mi-canal-respuesta', 'Esta es la respuesta');
-});
+// ipcMain.on('mi-canal', (event, mensaje) => {
+//   console.log('Mensaje recibido:', mensaje);
+//   // Puedes responder a la ventana de renderizado aquí si lo deseas
+//   event.reply('mi-canal-respuesta', 'Enviando reply ');
+// });
+
+connectDatabase()
+
+const vuelos = new VueloManager();
+const main = async () => {
+  const allVuelos = await vuelos.getVuelos();
+  
+  ipcMain.on('mi-canal', (event, mensaje) => {
+    console.log('Mensaje recibido:', mensaje);
+    // Puedes responder a la ventana de renderizado aquí si lo deseas
+    event.reply('mi-canal-respuesta', allVuelos);
+  });
+};
+
+main();

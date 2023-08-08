@@ -1,6 +1,6 @@
 import React from 'react'
 import despejar from '../../assets/img/despejar.png'
-
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
 
@@ -23,10 +23,10 @@ export const Header = () => {
       </nav>
       <section className='sections'>
         <ul>
-          <li><a href="#"><i className="fas fa-suitcase-rolling"></i><span>Paquetes</span></a></li>
-          <li><a href="#"><i className="fas fa-plane"></i><span>Vuelos</span></a></li>
-          <li><a href="#"><i className="fas fa-fire-alt"></i><span>Ofertas</span></a></li>
-          <li><a href="#"><i className="fas fa-bed"></i><span>Alojamientos</span></a></li>
+          <li><Link className='a' to="/"><i className="fas fa-suitcase-rolling"></i><span>Paquetes</span></Link></li>
+          <li><Link className='a' to="/pages/vuelos"><i className="fas fa-plane"></i><span>Vuelos</span></Link></li>
+          <li><Link className='a' to="/pages/ofertas"><i className="fas fa-fire-alt"></i><span>Ofertas</span></Link></li>
+          <li><Link className='a' to="/pages/alojamientos#"><i className="fas fa-bed"></i><span>Alojamientos</span></Link></li>
         </ul>
       </section>
     </header>

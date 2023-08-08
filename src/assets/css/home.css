@@ -121,51 +121,94 @@
 .control__form {
     display: flex;
     gap: 5px;
-    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    padding: 15px 0;
+    
 }
 
 .control__form-origen-destino {
-    display: flex;
-    max-width: 280px;
-    
+    display: flex;    
+    margin-right: 50px;
+}
+
+.control__form-origen-destino input {
+    padding: 0;
+    width: 100px;
+}
+.control__form-origen-destino .origen {
+    padding-right: 0;
+    margin-right: 0;
+    border-radius: 8px 0 0 8px;
+}
+.control__form-origen-destino .destino {
+    padding-left: 0;
+    margin-left: 0;
+    border-radius: 0 8px 8px 0;
 }
 
 
 
 .control__form-fechas {
+    /* background-color: pink; */
     display: flex;
     justify-content: center;
-    margin: 8px 0;
+    align-items: stretch;
+    margin: 0;
     padding: 0;
     max-width: 200px;
+    height: 60px;
+    margin-right: 50px;
 }
 
 .control__form-fechas .partida input,
 .control__form-fechas .regreso input {
     margin: 0;
-    padding: 0;
+    padding-bottom: 20px;
     width: 100%;
 }
 
-.control__form-fechas input {
-    margin: 0;
-    padding: 0px;
-    border: 1px solid #ccc;
-}
 
 .control__form-fechas .partida input {
-    border-right: none;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    text-align: center;
 }
 
 .control__form-fechas .regreso input {
-    border-left: none;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+}
+
+.control__form-habitaciones{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: auto 20px;
+    background-color: white;
+    width: 150px;
+    padding: 18px 0;
+    border-radius: 8px;
+    font-size: 20px;
+    color: var(--violet-despegar);
+}
+
+.control__form-habitaciones .fa-user,
+.control__form-habitaciones .fa-bed{
+    margin-right: 5px;
+}
+
+.container__btn {
+    margin: auto;
 }
 
 .btn-buscar {
-    padding: 1px 20px;
+    padding: 10px 25px;
     background-color: var(--orange);
     color: white;
     border: none;
     border-radius: 25px;
+    cursor: pointer;
 }
 

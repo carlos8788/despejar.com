@@ -11,16 +11,16 @@ export const Control = () => {
                 </div>
                 <form action="" className='control__form'>
                     <div className='control__form-origen-destino'>
-                        <input type="text" placeholder='Origen' />
-                        <input type="text" placeholder='Destino' />
+                        <input type="text" placeholder='Origen' className='origen' />
+                        <input type="text" placeholder='Destino' className='destino' />
                     </div>
                     <div className='control__form-fechas'>
                         <div className="partida">
-                            <label htmlFor="Partida">Partida</label>
+                            <label htmlFor="Partida">Partida:</label>
                             <input type="date" name='Partida' />
                         </div>
                         <div className="regreso">
-                            <label htmlFor="Regreso">Regreso</label>
+                            <label htmlFor="Regreso">Regreso:</label>
                             <input type="date" name='Regreso' />
                         </div>
 
@@ -49,9 +49,11 @@ export const Control = () => {
                             </select>
                         </label>
                     </div>
-                    <button type="submit" className='btn-buscar'>
-                        <i className="fas fa-search"></i> Buscar
-                    </button>
+                    <div className="container__btn">
+                        <button type="submit" className='btn-buscar'>
+                            <i className="fas fa-search"></i> Buscar
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>
