@@ -1,13 +1,13 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const ipcMain = electron.ipcMain;
+const main = require('./main/IPC/ipc')
 
 const path = require('path');
 const isDev = require('electron-is-dev');
 const connectDatabase = require('./main/database/connect');
 
-const VueloManager = require('./main/database/managers/vuelos.manager.js')
+
 
 let mainWindow;
 
@@ -54,16 +54,5 @@ app.on('activate', () => {
 // });
 
 connectDatabase()
-
-const vuelos = new VueloManager();
-const main = async () => {
-  const allVuelos = await vuelos.getVuelos();
-  
-  ipcMain.on('mi-canal', (event, mensaje) => {
-    console.log('Mensaje recibido:', mensaje);
-    // Puedes responder a la ventana de renderizado aquí si lo deseas
-    event.reply('mi-canal-respuesta', allVuelos);
-  });
-};
 
 main();

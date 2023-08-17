@@ -130,19 +130,21 @@
 .control__form-origen-destino {
     display: flex;    
     margin-right: 50px;
+    gap: 0;
 }
 
 .control__form-origen-destino input {
-    padding: 0;
+    border: solid 1.5px var(--gray);
+    font-size: 1rem;
     width: 100px;
 }
 .control__form-origen-destino .origen {
-    padding-right: 0;
+    padding-right: 5px;
     margin-right: 0;
     border-radius: 8px 0 0 8px;
 }
 .control__form-origen-destino .destino {
-    padding-left: 0;
+    padding-left: 5px;
     margin-left: 0;
     border-radius: 0 8px 8px 0;
 }

@@ -45,3 +45,11 @@ export const usePuntoHandler = (callback) => {
     });
     window.electron.ipcRenderer.send('punto', 'Solicitud de datos de punto');
 };
+
+
+export const testCanal = (callback) => {
+    window.electron.ipcRenderer.on('mi-canal-respuesta', (respuesta) => {
+        callback(respuesta);
+    });
+    window.electron.ipcRenderer.send('mi-canal', 'Solicitud de datos de vuelo');
+};
