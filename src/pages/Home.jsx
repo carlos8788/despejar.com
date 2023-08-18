@@ -2,14 +2,17 @@ import React from 'react'
 import { Header } from './components/Header'
 import '../assets/css/home.css'
 import { Control } from './components/Control'
-import { Vuelos } from './components/Vuelos'
+import { VuelosTabla } from './components/VuelosTabla'
+import MyComponent from './test/test'
 export const Home = () => {
   return (
     <>
 
       <Control />
-      <Vuelos/>
+      <VuelosTabla/>
       
+      {/* test */}
+      {/* <MyComponent /> */}
     </>
   )
 }

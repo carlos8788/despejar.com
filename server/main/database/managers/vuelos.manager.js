@@ -1,4 +1,5 @@
 const vueloModel = require('../models/vuelos.js')
+const VueloView = require('../models/vuelos_view.js')
 
 class VueloManager {
     
@@ -25,6 +26,10 @@ class VueloManager {
     // Eliminar un vuelo por su ID
     deleteVuelo = (id) => {
         return vueloModel.destroy({ where: { id_vuelo: id } });
+    }
+
+    vuelosView = () => {
+        return VueloView.findAll();
     }
 }
 

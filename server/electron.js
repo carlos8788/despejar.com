@@ -1,7 +1,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const main = require('./main/IPC/ipc')
+require('./main/IPC/ipc')
 
 const path = require('path');
 const isDev = require('electron-is-dev');
@@ -14,8 +14,8 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow(
     {
-      width: 900,
-      height: 680,
+      width: 1485,
+      height: 800,
       webPreferences: {
         preload: path.join(__dirname, './main/preload.js'), // Ruta a tu archivo de preload
         contextIsolation: true,
@@ -55,4 +55,4 @@ app.on('activate', () => {
 
 connectDatabase()
 
-main();
+// main();

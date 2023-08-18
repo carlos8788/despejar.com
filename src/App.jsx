@@ -8,6 +8,7 @@ import { Ofertas } from './pages/Ofertas';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Layout } from './pages/Layout';
+import { ComprarVuelo } from './pages/ComprarVuelo';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/pages/alojamientos" element={<Alojamientos />} />
           <Route path="/pages/vuelos" element={<Vuelos />} />
           <Route path="/pages/admin" element={<Admin />} />
+          <Route path="/pages/comprar-vuelo/:vueloId" element={<ComprarVuelo />} />
         </Routes>
       </Layout>
     </Router>
