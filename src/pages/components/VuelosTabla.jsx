@@ -21,8 +21,10 @@ export const VuelosTabla = () => {
   let headers = [];
   
   if (vuelos.length > 0) {
-    headers = Object.keys(vuelos[0].dataValues);
+    headers = Object.keys(vuelos[0]);
     // headers[0] = 'ID del vuelo'
+    console.log(headers);
+    console.log(vuelos);
   }
 
   return (
@@ -42,11 +44,11 @@ export const VuelosTabla = () => {
           {vuelos.map((vuelo, key) => (
             <tr key={key} className={`table__tr ${(key%2==0) ? 'dark' : ''}`} >
               {headers.map((header, innerKey) => (
-                <td key={innerKey}>{vuelo.dataValues[header]}</td>
+                <td key={innerKey}>{vuelo[header]}</td>
               ))}
               <td>
-                {/* Aquí puedes colocar un botón o enlace para comprar. */}
-                <button className='btn-comprar' onClick={()=>comprarVuelo(vuelo.dataValues.ID)}>Comprar</button>
+                
+                <button className='btn-comprar' onClick={()=>comprarVuelo(vuelo.ID)}>Comprar</button>
               </td>
             </tr>
           ))}

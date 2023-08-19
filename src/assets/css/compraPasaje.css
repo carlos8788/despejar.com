@@ -1,0 +1,53 @@
+@import './main.css';
+
+.titulo{
+    text-align: center;
+    margin: 10px 5px;
+    background-color: var(--violet-tertiary);
+    padding: 10px 0;
+    color: var(--violet-primary);
+    border-radius: 8px;
+}
+
+.container__vuelo{
+    display: flex;
+    /* background-color: red; */
+    margin: 10px 3px 0 3px;
+}
+
+.grid-container {
+    display: grid;
+    width: 550px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px; /* Espacio entre las celdas */
+    /* background-color: aqua; */
+    
+}
+
+.asiento-columna-c { 
+    margin-right: 50px;
+}
+.asiento {
+    background-color: var(--violet-tertiary);
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    text-align: center;
+
+    /* Estas tres líneas se añaden para centrar el texto verticalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.asiento:hover{
+    background-color: var(--violet-secondary);
+}
+
+.datos{
+    
+    width: 100%;
+    padding: 0 10px 0 20px;
+}
+

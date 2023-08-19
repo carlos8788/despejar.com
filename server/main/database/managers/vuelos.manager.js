@@ -2,7 +2,7 @@ const vueloModel = require('../models/vuelos.js')
 const VueloView = require('../models/vuelos_view.js')
 
 class VueloManager {
-    
+
     // Obtener todos los vuelos
     getVuelos = () => {
         return vueloModel.findAll();
@@ -31,6 +31,9 @@ class VueloManager {
     vuelosView = () => {
         return VueloView.findAll();
     }
+
+
+
 }
 
 module.exports = VueloManager;

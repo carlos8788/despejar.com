@@ -1,14 +1,15 @@
 const electron = require('electron');
 const ipcMain = electron.ipcMain;
-const VueloManager = require('../database/managers/vuelos.manager')
+const { getVueloController } = require('../controllers/vuelo.controller')
+const VuelosService = require('../services/vuelo.service')
 
-const vuelos = new VueloManager();
+const vuelos = new VuelosService()
 
 ipcMain.on('mi-canal', async (event, mensaje) => {
     console.log('Mensaje recibido:', mensaje);
     
     try {
-        const allVuelos = await vuelos.vuelosView();
+        const allVuelos = await vuelos.getVuelosViewService();
         event.reply('mi-canal-respuesta', allVuelos);
     } catch (err) {
         console.error("Error al obtener vuelos:", err);
@@ -20,18 +21,13 @@ ipcMain.on('db-req', async (event, objQuery) => {
     console.log('Mensaje recibido:', objQuery);
     
     try {
-        const data = await querys.getById(objQuery.id);
+        const data = await getVueloController(objQuery.id);
         event.reply('db-res', data);
     } catch (err) {
         console.error("Error al obtener vuelos:", err);
         event.reply('db-res', { error: "Error al obtener vuelos" });
     }
 });
-
-const querys = {
-    getById: vuelos.getVueloById,
-    getVuelos: vuelos.getVuelos
-}
 
 
 // const DatabaseManager = {
