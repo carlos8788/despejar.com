@@ -214,3 +214,45 @@
     cursor: pointer;
 }
 
+.home-main{
+    padding: 10px 30px 30px 30px;
+    background-color: var(--gray);
+}
+
+.home-subtitle{
+    
+    font-size: 24px;
+    font-weight: 450;
+    color: var(--dark-gray);
+}
+
+.home-cards{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    height: 285px;
+}
+
+.card{
+    margin-top: 15px;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    /* box-shadow: 2px 2px 10px black; */
+}
+
+.imagen {
+    background-image: url('https://media.staticontent.com/media/pictures/b16a1109-d772-4097-8c4c-bca1807dfd9b/300x299?op=NONE&enlarge=false&gravity=ce_0_0&quality=80&dpr=1');
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 15px ;
+    background-color: white;
+}
