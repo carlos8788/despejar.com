@@ -235,6 +235,8 @@
 }
 
 .card{
+    text-decoration: none;
+    color: black;
     margin-top: 15px;
     width: 250px;
     height: 250px;
@@ -244,10 +246,22 @@
 }
 
 .imagen {
-    background-image: url('https://media.staticontent.com/media/pictures/b16a1109-d772-4097-8c4c-bca1807dfd9b/300x299?op=NONE&enlarge=false&gravity=ce_0_0&quality=80&dpr=1');
+    
     background-size: cover;
     background-position: center center;
     height: 200px;
+}
+
+.img-1{
+    background-image: url('https://media.staticontent.com/media/pictures/e04655d7-c52a-4c9f-ab10-a8695ada48ac/400x300');
+}
+
+.img-2{
+    background-image: url('https://media.staticontent.com/media/pictures/115deb36-03d7-41d0-a2c1-33ec7500665d/400x300');
+}
+
+.img-3{
+    background-image: url('https://media.staticontent.com/media/pictures/2b794047-4762-428e-8c2a-bea6df8c1d51/400x300');
 }
 
 .card-title{

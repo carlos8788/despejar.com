@@ -1,6 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { dbQuery } from '../../renderer/renderer'
+
+const selectQuantity = (name) => {
+    return (
+        <select name={name}>
+            {[1, 2, 3, 4].map((num) => (
+                <option key={num} value={num}>
+                    {num}
+                </option>
+            ))}
+        </select>
+    )
+}
+
 
 export const Control = () => {
+
+    const getPuntos = async () => {
+        await dbQuery((response) => setPunto(response), 'Soy un objeto puntos')
+
+        return
+    }
+
+    useEffect(() => {
+        getPuntos()
+
+    }, [])
+
+    const [punto, setPunto] = useState({
+        origen: '',
+        destino: ''
+    })
+
+    const onInputChange = ({ target }) => {
+        const { name, value } = target
+        setPunto({
+            ...punto,
+            [name]: value
+        })
+    }
+
+    const { origen, destino } = punto
+
     return (
         <section className='control-container'>
             <div className="control">
@@ -11,8 +52,20 @@ export const Control = () => {
                 </div>
                 <form action="" className='control__form'>
                     <div className='control__form-origen-destino'>
-                        <input type="text" placeholder='Origen' className='origen' />
-                        <input type="text" placeholder='Destino' className='destino' />
+                        <input
+                            type="text"
+                            placeholder='Origen'
+                            className='origen'
+                            value={origen}
+                            onChange={onInputChange}
+                        />
+                        <input
+                            type="text"
+                            placeholder='Destino'
+                            className='destino'
+                            value={destino}
+                            onChange={onInputChange}
+                        />
                     </div>
                     <div className='control__form-fechas'>
                         <div className="partida">
@@ -28,25 +81,12 @@ export const Control = () => {
                     <div className="control__form-habitaciones">
                         <label>
                             <i className="fas fa-bed"></i>
-                            <select>
-                                {[1, 2, 3, 4].map((num) => (
-                                    <option key={num} value={num}>
-                                        {num}
-                                    </option>
-                                ))}
-                            </select>
+                            {selectQuantity('bedrooms')}
                         </label>
 
                         <label>
                             <i className='far fa-user'></i>
-                            {/* <select value={numRooms} onChange={handleRoomsChange}> */}
-                            <select >
-                                {[1, 2, 3, 4].map((num) => (
-                                    <option key={num} value={num}>
-                                        {num}
-                                    </option>
-                                ))}
-                            </select>
+                            {selectQuantity('persons')}
                         </label>
                     </div>
                     <div className="container__btn">

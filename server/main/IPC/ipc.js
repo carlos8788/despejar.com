@@ -19,10 +19,10 @@ ipcMain.on('mi-canal', async (event, mensaje) => {
 
 ipcMain.on('db-req', async (event, objQuery) => {
     console.log('Mensaje recibido:', objQuery);
-    
+    // objQuery tiene que traer la db, verbo y id o data si sería necesario
     try {
-        const data = await getVueloController(objQuery.id);
-        event.reply('db-res', data);
+        // const data = await getVueloController(objQuery.id);
+        event.reply('db-res', 'data');
     } catch (err) {
         console.error("Error al obtener vuelos:", err);
         event.reply('db-res', { error: "Error al obtener vuelos" });

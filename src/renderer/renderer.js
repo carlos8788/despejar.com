@@ -54,8 +54,8 @@ export const testCanal = (callback) => {
     window.electron.ipcRenderer.send('mi-canal', 'Solicitud de datos de vuelo');
 };
 
-export const dbQuery = (callback, typeQuery) => {
-    window.electron.ipcRenderer.on('db-res', (respuesta) => {
+export const dbQuery = async (callback, typeQuery) => {
+    await window.electron.ipcRenderer.on('db-res', (respuesta) => {
         callback(respuesta);
     });
     window.electron.ipcRenderer.send('db-req', typeQuery);
